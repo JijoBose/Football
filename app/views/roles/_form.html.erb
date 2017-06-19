@@ -1,0 +1,39 @@
+<%= form_with(model: role, local: true) do |form| %>
+  <% if role.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(role.errors.count, "error") %> prohibited this role from being saved:</h2>
+
+      <ul>
+      <% role.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :match_id %>
+    <%= form.select(:match_id, match_names_list, :prompt => 'Select Match') %><br><br>
+    <%# form.number_field :match_id, id: :role_match_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :player_id %>
+    <%= form.select(:player_id, player_names_list, :prompt => 'Select Match') %><br><br>
+    <%# form.number_field :player_id, id: :role_player_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :captain %>
+    <%= form.check_box :captain, id: :role_captain %>
+  </div>
+
+  <div class="field">
+    <%= form.label :goalkeeper %>
+    <%= form.check_box :goalkeeper, id: :role_goalkeeper %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

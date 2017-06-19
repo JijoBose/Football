@@ -12,6 +12,11 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :match_title %>
+  </div>
+
+  <div class="field">
     <%= form.label :team1_id %>
     <%= form.select(:team1_id, team_names_list, :prompt => 'Select Team 1') %><br><br>
     <%# form.number_field :team1_id, id: :match_team1_id %>

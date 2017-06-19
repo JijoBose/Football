@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170619031815) do
+ActiveRecord::Schema.define(version: 20170619035121) do
 
   create_table "matches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "title", null: false
     t.integer "team1_id", null: false
     t.integer "team2_id", null: false
     t.integer "venue_id", null: false
@@ -24,6 +25,15 @@ ActiveRecord::Schema.define(version: 20170619031815) do
   create_table "players", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", null: false
     t.integer "team_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "match_id", null: false
+    t.integer "player_id", null: false
+    t.boolean "captain", default: false, null: false
+    t.boolean "goalkeeper", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

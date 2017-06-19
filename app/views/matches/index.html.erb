@@ -18,7 +18,7 @@
       <tr>
         <td><%= match.team1_id %></td>
         <td><%= match.team2_id %></td>
-        <td><%= match.venue_id %></td>
+        <td><%= match.venue.location %></td>
         <td><%= match.schedule %></td>
         <td><%= link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>

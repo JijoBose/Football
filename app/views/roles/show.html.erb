@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Match:</strong>
+  <%= @role.match_id %>
+</p>
+
+<p>
+  <strong>Player:</strong>
+  <%= @role.player_id %>
+</p>
+
+<p>
+  <strong>Captain:</strong>
+  <%= @role.captain %>
+</p>
+
+<p>
+  <strong>Goalkeeper:</strong>
+  <%= @role.goalkeeper %>
+</p>
+
+<%= link_to 'Edit', edit_role_path(@role) %> |
+<%= link_to 'Back', roles_path %>
