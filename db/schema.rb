@@ -32,8 +32,7 @@ ActiveRecord::Schema.define(version: 20170619035121) do
   create_table "roles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "match_id", null: false
     t.integer "player_id", null: false
-    t.boolean "captain", default: false, null: false
-    t.boolean "goalkeeper", default: false, null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

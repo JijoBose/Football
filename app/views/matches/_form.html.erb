@@ -36,7 +36,7 @@
 
   <div class="field">
     <%= form.label :schedule %>
-    <%= form.date_select :schedule, id: :match_schedule %>
+    <%= form.date_field :schedule, min: Date.today, id: :match_schedule %>
   </div>
 
   <div class="actions">
