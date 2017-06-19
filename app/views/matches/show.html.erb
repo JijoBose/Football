@@ -1,23 +1,30 @@
 
+<h3>Captain: <%= find_captain(@match.id) %></h3>
+<h3>GoalKeeper: <%= find_goalkeeper(@match.id) %></h3>
+
 <p>
   <strong>Team1:</strong>
-  <%= @match.team1_id %>
+  <%# @match.team1_id %>
+  <%= team_name_finder(@match.team1_id) %>
 </p>
 
 <p>
   <strong>Team2:</strong>
-  <%= @match.team2_id %>
+  <%= team_name_finder(@match.team2_id) %>
 </p>
 
 <p>
   <strong>Venue:</strong>
-  <%= @match.venue_id %>
+  <%= @match.venue.location %>
 </p>
 
 <p>
   <strong>Schedule:</strong>
   <%= @match.schedule %>
 </p>
+
+<p> <%= find_captain(@match.id) %>
+
 
 <%= link_to 'Edit', edit_match_path(@match) %> |
 <%= link_to 'Back', matches_path %>
