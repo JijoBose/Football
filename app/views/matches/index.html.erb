@@ -2,7 +2,8 @@
 
 <h1>Matches</h1>
 
-<table>
+<div class="container">
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Team1</th>
@@ -16,11 +17,11 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
-        <td><%= match.team1_id %></td>
-        <td><%= match.team2_id %></td>
+        <td><%= team_name_finder(match.team1_id) %></td>
+        <td><%= team_name_finder(match.team2_id) %></td>
         <td><%= match.venue.location %></td>
         <td><%= match.schedule %></td>
-        <td><%= link_to 'Show', match %></td>
+        <td><%# link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
