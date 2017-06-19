@@ -4,7 +4,8 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all
+    #@matches = Match.all
+    @matches = Match.order('schedule DESC')
   end
 
   # GET /matches/1
@@ -26,6 +27,21 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
 
+    if @match.team1_id == @match.team2_id
+      flash[:notice] = "Team1 and team 2 are same"
+      redirect_to matches_url
+    else
+      respond_to do |format|
+        if @match.save
+          format.html { redirect_to matches_url, notice: 'Match was successfully created.' }
+          format.json { render :show, status: :created, location: @match }
+        else
+          format.html { render :new }
+          format.json { render json: @match.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+=begin
     respond_to do |format|
       if @match.save
         format.html { redirect_to matches_url, notice: 'Match was successfully created.' }
@@ -35,6 +51,7 @@ class MatchesController < ApplicationController
         format.json { render json: @match.errors, status: :unprocessable_entity }
       end
     end
+=end
   end
 
   # PATCH/PUT /matches/1

@@ -9,17 +9,16 @@ module HomePagesHelper
   end
 
   def find_captain(matchid)
-    b = Role.where(match_id: matchid).where(captain: true).pluck(:player_id)
+    b = Role.where(match_id: matchid).where(name: 'captain').pluck(:player_id)
     temp = b[0]
     final = Player.where(id: temp).pluck(:name)
     return final[0]
   end
 
   def find_goalkeeper(matchid)
-    b = Role.where(match_id: matchid).where(goalkeeper: true).pluck(:player_id)
+    b = Role.where(match_id: matchid).where(name: 'goalkeeper').pluck(:player_id)
     temp = b[0]
     final = Player.where(id: temp).pluck(:name)
-    tfinal = final[0]
-    return tfinal
+    return final[0]
   end
 end
