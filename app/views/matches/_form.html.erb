@@ -1,0 +1,40 @@
+<%= form_with(model: match, local: true) do |form| %>
+  <% if match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(match.errors.count, "error") %> prohibited this match from being saved:</h2>
+
+      <ul>
+      <% match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :team1_id %>
+    <%= form.select(:team1_id, team_names_list, :prompt => 'Select Team 1') %><br><br>
+    <%# form.number_field :team1_id, id: :match_team1_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :team2_id %>
+    <%= form.select(:team2_id, team_names_list, :prompt => 'Select Team 2') %><br><br>
+    <%# form.number_field :team2_id, id: :match_team2_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :venue_id %>
+    <%= form.select(:venue_id, venue_names_list, :prompt => 'Select Venue') %><br><br>
+    <%# form.number_field :venue_id, id: :match_venue_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :schedule %>
+    <%= form.date_select :schedule, id: :match_schedule %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

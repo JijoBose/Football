@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :matches
+  resources :venues
   resources :players
   resources :teams
   get 'home_pages/home'
