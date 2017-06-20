@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
   # GET /matches.json
   def index
     #@matches = Match.all
-    @matches = Match.order('schedule DESC')
+    @matches = Match.order('schedule ASC')
   end
 
   # GET /matches/1

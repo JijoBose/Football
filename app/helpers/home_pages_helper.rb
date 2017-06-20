@@ -1,6 +1,6 @@
 module HomePagesHelper
   def upcomming_match
-    Match.where(:schedule => Time.now..6.months.after)
+    Match.where(:schedule => Time.now..6.months.after).order('schedule ASC')
   end
 
   def team_name_finder(getid)
