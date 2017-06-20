@@ -32,7 +32,7 @@ end
     team1_id: rand(1..10),
     team2_id: rand(1..10),
     venue_id: rand(1..5),
-    schedule: Faker::Date.birthday(0,rand(0..15))
+    schedule: Faker::Date.forward(30)
     }])
 end
 

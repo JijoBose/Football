@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Title</th>
       <th>Team1</th>
       <th>Team2</th>
       <th>Venue</th>
@@ -16,6 +17,7 @@
   <tbody>
     <% @matches.each do |match| %>
       <tr>
+        <td><%= match.title %></td>
         <td><%= team_name_finder(match.team1_id) %></td>
         <td><%= team_name_finder(match.team2_id) %></td>
         <td><%= match.venue.location %></td>

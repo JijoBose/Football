@@ -29,7 +29,7 @@ class MatchesController < ApplicationController
 
     if @match.team1_id == @match.team2_id
       flash[:notice] = "Team1 and team 2 are same"
-      redirect_to matches_url
+      redirect_to new_match_url
     else
       respond_to do |format|
         if @match.save
